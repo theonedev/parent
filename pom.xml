@@ -24,7 +24,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
+				<version>3.0.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -34,15 +34,33 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
-        <resources> 
-            <resource> 
-                <directory>src/main/java</directory>  
-                <excludes> 
-                    <exclude>**/*.java</exclude> 
-                </excludes> 
-            </resource> 
-        </resources>  
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<testResources>
 			<testResource>
 				<directory>src/test/resources</directory>
@@ -55,32 +73,32 @@
 			</testResource>
 		</testResources>
 	</build>
-    <dependencies> 
-        <dependency> 
-            <groupId>junit</groupId>  
-            <artifactId>junit</artifactId>  
-            <version>4.11</version>  
-            <scope>test</scope> 
-        </dependency>  
-        <dependency> 
-            <groupId>org.mockito</groupId>  
-            <artifactId>mockito-all</artifactId>  
-            <version>1.9.5</version>  
-            <scope>test</scope> 
-        </dependency>  
-        <dependency> 
-            <groupId>org.powermock</groupId>  
-            <artifactId>powermock-module-junit4</artifactId>  
-            <version>${powermockVersion}</version>  
-            <scope>test</scope> 
-        </dependency>  
-        <dependency> 
-            <groupId>org.powermock</groupId>  
-            <artifactId>powermock-api-mockito</artifactId>  
-            <version>${powermockVersion}</version>  
-            <scope>test</scope> 
-        </dependency> 
-    </dependencies>  
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 	<distributionManagement>
 		<repository>
 			<id>pmeaseRepo</id>
@@ -103,25 +121,25 @@
 			</snapshots>
 		</repository>
 	</repositories>
-    <pluginRepositories> 
-        <pluginRepository> 
-            <id>pmeaseRepo</id>  
-            <url>http://artifact.pmease.com/artifactory/pmeaseRepo</url> 
-            <releases> 
-                <enabled>true</enabled>  
-                <updatePolicy>never</updatePolicy>  
-                <checksumPolicy>fail</checksumPolicy> 
-            </releases>  
-            <snapshots> 
-                <enabled>true</enabled>  
-                <updatePolicy>never</updatePolicy>  
-                <checksumPolicy>fail</checksumPolicy> 
-            </snapshots>  
-        </pluginRepository> 
-    </pluginRepositories>  
+	<pluginRepositories>
+		<pluginRepository>
+			<id>pmeaseRepo</id>
+			<url>http://artifact.pmease.com/artifactory/pmeaseRepo</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>	
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <powermockVersion>1.5.1</powermockVersion>  
+		<powermock.version>1.5.1</powermock.version>
 	</properties>
 </project>
