@@ -4,6 +4,7 @@ target
 .metadata/
 .recommenders/
 .idea/
+**/.project
 **/.classpath
 **/*.iml
 release.properties
