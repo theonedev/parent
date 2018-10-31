@@ -1,5 +1,8 @@
 release.properties
 pom.xml.releaseBackup
+**/.classpath
+**/.project
+**/.settings
 
 .loadpath
 *.class
