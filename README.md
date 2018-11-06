@@ -1,1 +1,1 @@
-Parent POM for OneDev projects
+Maven parent POM for OneDev projects
