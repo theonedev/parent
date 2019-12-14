@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<io.onedev.server.buildspec.BuildSpec revision="0">
+    <jobs>
+        <io.onedev.server.buildspec.job.Job>
+            <name>Release</name>
+            <paramSpecs/>
+            <image>@scripts:builtin:maven:determine-docker-image@</image>
+            <commands>
+                <string>echo "Detecting project version (may require some time while downloading maven dependencies)..."</string>
+                <string>buildVersion=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)</string>
+                <string>echo "##onedev[SetBuildVersion '$buildVersion']"</string>
+                <string>cat &lt;&lt; EOF &gt; /root/.m2/settings.xml</string>
+                <string>&lt;settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"</string>
+                <string>  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</string>
+                <string>    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0</string>
+                <string>    https://maven.apache.org/xsd/settings-1.0.0.xsd"&gt;</string>
+                <string>    &lt;servers&gt;</string>
+                <string>        &lt;server&gt;</string>
+                <string>            &lt;id&gt;pmeaseRepo&lt;/id&gt;</string>
+                <string>            &lt;username&gt;build&lt;/username&gt;</string>
+                <string>            &lt;password&gt;${maven.deploy.password}&lt;/password&gt;</string>
+                <string>        &lt;/server&gt;</string>
+                <string>    &lt;/servers&gt;</string>
+                <string>&lt;/settings&gt;</string>
+                <string>EOF</string>
+                <string>mvn clean deploy -Dmaven.deploy.password=@secrets:maven-deploy-password@</string>
+            </commands>
+            <retrieveSource>true</retrieveSource>
+            <submoduleCredentials/>
+            <jobDependencies/>
+            <projectDependencies/>
+            <services/>
+            <reports/>
+            <triggers>
+                <io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger>
+                    <params/>
+                </io.onedev.server.buildspec.job.trigger.BranchUpdateTrigger>
+            </triggers>
+            <caches>
+                <io.onedev.server.buildspec.job.CacheSpec>
+                    <key>maven-cache</key>
+                    <path>/root/.m2/repository</path>
+                </io.onedev.server.buildspec.job.CacheSpec>
+            </caches>
+            <cpuRequirement>250m</cpuRequirement>
+            <memoryRequirement>128m</memoryRequirement>
+            <timeout>3600</timeout>
+            <postBuildActions/>
+            <retryCondition>never</retryCondition>
+            <maxRetries>3</maxRetries>
+            <retryDelay>30</retryDelay>
+        </io.onedev.server.buildspec.job.Job>
+    </jobs>
+</io.onedev.server.buildspec.BuildSpec>
