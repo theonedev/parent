@@ -19,7 +19,7 @@
                 <string>        &lt;server&gt;</string>
                 <string>            &lt;id&gt;pmeaseRepo&lt;/id&gt;</string>
                 <string>            &lt;username&gt;build&lt;/username&gt;</string>
-                <string>            &lt;password&gt;${maven.deploy.password}&lt;/password&gt;</string>
+                <string>            &lt;password&gt;\${maven.deploy.password}&lt;/password&gt;</string>
                 <string>        &lt;/server&gt;</string>
                 <string>    &lt;/servers&gt;</string>
                 <string>&lt;/settings&gt;</string>
