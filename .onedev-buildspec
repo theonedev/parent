@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<io.onedev.server.buildspec.BuildSpec revision="0">
+<io.onedev.server.buildspec.BuildSpec revision="1">
     <jobs>
         <io.onedev.server.buildspec.job.Job>
             <name>Release</name>
             <paramSpecs/>
             <image>@scripts:builtin:maven:determine-docker-image@</image>
             <commands>
+                <string>set -e</string>
+                <string>rm -rf ~/.m2/repository/io/onedev # in case we did not bump pom version of some dependencies</string>
                 <string>echo "Detecting project version (may require some time while downloading maven dependencies)..."</string>
                 <string>buildVersion=$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)</string>
                 <string>echo "##onedev[SetBuildVersion '$buildVersion']"</string>
@@ -39,4 +41,5 @@
             <retryDelay>30</retryDelay>
         </io.onedev.server.buildspec.job.Job>
     </jobs>
+    <properties/>
 </io.onedev.server.buildspec.BuildSpec>
