@@ -1,8 +1,4 @@
 version: 25
-properties:
-- name: buildEnvironment
-  value: 1dev/build-environment:1.5
-  archived: false
 jobs:
 - name: Release
   steps:
