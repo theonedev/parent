@@ -1,7 +1,4 @@
-version: 19
-properties:
-- name: buildEnvironment
-  value: 1dev/build-environment:1.5
+version: 25
 jobs:
 - name: Release
   steps:
@@ -18,10 +15,8 @@ jobs:
     interpreter: !DefaultInterpreter
       commands:
       - set -e
-      - echo "Detecting project version (may require some time while downloading maven
-        dependencies)..."
-      - echo $(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version
-        -q -DforceStdout) > buildVersion
+      - echo "Detecting project version (may require some time while downloading maven dependencies)..."
+      - echo $(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout) > buildVersion
     useTTY: false
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   - !SetBuildVersionStep
@@ -40,6 +35,7 @@ jobs:
   - !CreateTagStep
     name: create tag
     tagName: v@build_version@
+    accessTokenSecret: onedev-token
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   triggers:
   - !BranchUpdateTrigger
@@ -66,8 +62,7 @@ jobs:
     interpreter: !DefaultInterpreter
       commands:
       - git config --global --unset http.extraHeader
-      - git push https://robinshine:@secrets:github-token@@@github.com/theonedev/parent
-        HEAD:main
+      - git push https://robinshine:@secrets:github-token@@@github.com/theonedev/parent HEAD:main
     useTTY: false
     condition: ALL_PREVIOUS_STEPS_WERE_SUCCESSFUL
   triggers:
