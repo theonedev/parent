@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.onedev</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<packaging>pom</packaging>
 	<build>
 		<pluginManagement>
@@ -95,24 +95,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<!-- plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.4</version>
-				<configuration>
-					<detectJavaApiLink>false</detectJavaApiLink>
-				</configuration>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-						<configuration>
-							<additionalparam>-Xdoclint:none</additionalparam>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin-->
 		</plugins>
 		<resources>
 			<resource>
@@ -154,13 +136,13 @@
 	<distributionManagement>
 		<repository>
 			<id>onedev</id>
-			<url>https://artifact.onedev.io/artifactory/onedev</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 		</repository>
 	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>onedev</id>
-			<url>https://artifact.onedev.io/artifactory/onedev</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
@@ -204,7 +186,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>onedev</id>
-			<url>https://artifact.onedev.io/artifactory/onedev</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
