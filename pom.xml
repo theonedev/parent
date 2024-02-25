@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.onedev</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.2.2</version>
+	<version>1.2.3</version>
 	<packaging>pom</packaging>
 	<build>
 		<pluginManagement>
@@ -186,7 +186,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/server/~maven</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
