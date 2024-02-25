@@ -136,13 +136,13 @@
 	<distributionManagement>
 		<repository>
 			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/server/~maven</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 		</repository>
 	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>onedev</id>
-			<url>https://code.onedev.io/onedev/server/~maven</url>
+			<url>https://code.onedev.io/onedev/~maven</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>never</updatePolicy>
