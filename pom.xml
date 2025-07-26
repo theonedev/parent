@@ -20,9 +20,6 @@
 					<version>3.10.1</version>
 					<configuration>
 						<release>11</release>
-						<!-- These below are ignored as release set, but left for clarity -->
-						<source>11</source>
-						<target>11</target>
 					</configuration>
 				</plugin>
 				<plugin>
